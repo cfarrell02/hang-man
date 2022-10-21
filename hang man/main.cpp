@@ -26,11 +26,11 @@ void pause();
 int main(int argc, const char * argv[]) {
     //List of possible words
     vector<string> words = {"Cartography","Embargo","Treasure"};
-    shuffle(words.begin(),words.end(),default_random_engine(static_cast<unsigned int>(time(0))));
     while(words.size()>0){
+        shuffle(words.begin(),words.end(),default_random_engine(static_cast<unsigned int>(time(0))));
         //Select last word from shuffled list
         g_word = words.back();
-        //Creates dummy word of dashes and removes it from size
+        //Creates dummy word of dashes and removes it from vector
         string guessWord(g_word.size(),'-');
         words.pop_back();
         string guess = "0";
@@ -45,9 +45,8 @@ int main(int argc, const char * argv[]) {
             if(guesses>=g_word.size()){
                 cout<<"You've run out of guesses"<<endl;
                 if(words.size()>=1){
-                    pause(); // pauses for input
+                    pause(); // pauses for input if more words are still to go.
                 }
-             
                 break;
             }
             // If a char has been inputed...
@@ -73,7 +72,7 @@ int main(int argc, const char * argv[]) {
             }
             //If the player has guessed every letter in the word
             if(toUpper(guessWord) == toUpper(g_word)){
-                cout<<"Congratulations, you guessed it!!"<<endl; //Correct guess, Congratulates player and moves on to the next word
+                cout<<"Congratulations, you guessed it!!"<<endl; //Correct guess, Congratulates player and moves on to the next word/ends game
                 if(words.size()>=1) pause();
                 break;
             }
