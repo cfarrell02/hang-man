@@ -49,14 +49,14 @@ int main(int argc, const char * argv[]) {
                 }
                 break;
             }
-            // If a char has been inputed...
+            // If a char has been inputted...
             if(guess.size()==1){
                 string oldval = guessWord;
                 guessWord = guessLetter(guess[0], guessWord); // Updated the guessWord string with any new relevant letters
                 if(oldval == guessWord) ++guesses ;// guess was wrong
                 cout<<guessWord<<endl;
             }
-            //If a string has been inputed...
+            //If a string has been inputted...
             else{
                 if(isTheWord(guess)){
                     cout<<"Congratulations, you guessed it!!"<<endl; //Correct guess, Congratulates player and moves on to the next word
