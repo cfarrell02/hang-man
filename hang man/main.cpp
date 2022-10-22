@@ -12,6 +12,7 @@
 #include <string>
 #include <random>
 #include <sstream>
+#include <fstream>
 
 
 using namespace std;
@@ -26,6 +27,15 @@ void pause();
 int main(int argc, const char * argv[]) {
     //List of possible words
     vector<string> words = {"Cartography","Embargo","Treasure"};
+    
+//    fstream newfile;
+//    string line;
+//    newfile.open("words.txt", ios::in);           Not working properly :(
+//    if(newfile.is_open()){
+//        cout<<line<<endl;
+//        while(getline(newfile,line)) words.push_back(line);
+//    }
+    
     while(words.size()>0){
         shuffle(words.begin(),words.end(),default_random_engine(static_cast<unsigned int>(time(0))));
         //Select last word from shuffled list
